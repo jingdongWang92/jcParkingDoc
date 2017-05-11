@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>甲虫朕要停车接口文档</title>
+  <style type="text/css">
+  article, aside, figure, figcaption, footer, header, hgroup, nav, section, summary {  
+  display: block;  
+}
+ 
+*{
+   margin: 0px;
+   padding: 0px;
+}
+ 
+body {
+  font-size: medium;
+  font-family: "Helvetica","Hiragino Sans GB","Microsoft Yahei", sans-serif;
+}
+ 
+a {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer
+}
+ 
+a:hover {
+    color: #5188a6;
+    text-decoration: none
+}
+ 
+#wrapper {
+    max-width: 1000px;
+    min-width: 400px;
+}
+ 
+header.SiteHeader {
+  padding: 10px;
+  background: #000000; 
+}
+ 
+aside.NavSidebar
+{ 
+  padding: 5px 15px 5px 15px;
+  width: 203px;
+  background-color:#f9f9f9;
+  font-size: small;
+  float:left;
+  position:fixed; 
+}
+ 
+aside.NavSidebar h2 {
+  color: #6B6E3F;
+  border-bottom: thin #6B6E3F solid;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+ 
+aside.NavSidebar ul {
+  padding-left: 15px;
+}
+ 
+aside.NavSidebar li {
+  padding-bottom: 8px;
+}
+ 
+aside.NavSidebar img {
+  margin-top: 20px;
+  border: white solid 4px;
+}
+ 
+.Content {
+  padding: 20px;
+  margin-left:233px;
+}
+ 
+.Content .LeadIn {
+  font-weight: bold;
+  font-size: large;
+  font-variant: small-caps;
+}
+ 
+.Content h3 {
+  color: #24486C;
+  margin-bottom: 2px;
+  font-size: medium;
+}
+ 
+.Content p {
+  margin-top: 0px;
+}
+ 
+header.ArticleHeader {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+ 
+header.ArticleHeader h2 { 
+  font-size: xx-large;
+}
+ 
+header.ArticleHeader h3 {
+  margin-top: 8px;
+  font-weight: bold;
+}
+ 
+header.ArticleHeader .Byline {
+  margin-top: 8px;
+  font-style: italic;
+  font-size: small;
+}
+ 
+footer {
+  background: #333333;
+  color:#c0c0c0;
+  padding: 10px;
+  text-align: center;
+  font-size: x-small;  
+  clear:both;
+}
+ 
+footer .Disclaimer {
+  font-style: italic;
+}
+ 
+footer p {
+  margin: 3px;
+}
+
+/*==============================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+  
+  </style>
+</head>
+ 
+<body>
+<div id="wrapper">
+    <aside class="NavSidebar">
+      <nav><h2>目录</h2>
+        <ul>
+			<li><a href="#接口调用说明">1.接口调用说明</a>
+			<ul>
+			<li><a href="#API访问域名">API访问域名</a></li>
+			<li><a href="#公共请求参数说明">公共请求参数说明</a></li>
+			<li><a href="#查询参数说明">查询参数说明</a></li>
+			<li><a href="#API请求格式">API请求格式</a></li>
+			<li><a href="#请求参数">请求参数</a></li>
+			<li><a href="#响应">响应</a></li>
+			<li><a href="#响应值类型格式说明">响应值类型格式说明</a></li>
+			</ul>
+			</li>
+			<li><a href="#通用接口">2.通用接口</a></li>
+			<li><a href="#管理端相关接口">3.管理端相关接口</a></li>
+			<li><a href="#路边停车收费端相关接口">4.路边停车收费端相关接口</a></li>
+			<li><a href="#用户端相关接口">5.用户端相关接口</a></li>
+			<li><a href="#道闸相关接口">6.道闸相关接口</a></li>
+		</ul>
+      </nav>
+    </aside>
+ 
+    <main>
+    <article class="Content">
+     <h1 id="head" style="margin-top:-1px;">甲虫朕要停车接口文档</h1>
+     <h2 id="接口调用说明">1. 接口调用说明</h2>
+	<h3 id="API访问域名">1.1 API访问域名</h3>
+<ol>
+<li>API正式环境访问域名:</li>
+<li>API测试环境访问域名:<code>https://zheng-yao-ting-che.apis.staging.jcbel.com</code></li>
+</ol>
+<h3 id="公共请求参数说明">1.2 公共请求参数说明</h3>
+<p>注意：除特别声明外,每个API请求，都必须传入下面的基本参数</p>
+<table>
+<tbody><tr><th>参数名称</th>
+<th>类型</th>
+<th>参数描述</th>
+	</tr><tr>
+		<td>sign</td>
+		<td>string</td>
+		<td>请求串的签名</td>
+	</tr>
+	<tr>
+		<td>apptype</td>
+		<td>int</td>
+		<td>客户端类型 (0:Android 1:IOS 2:Web)
+        </td>
+	</tr>
+</tbody></table>
+<h3 id="查询参数说明">1.3 查询参数说明</h3>
+<table>
+<tbody><tr><th>参数名称</th>
+<th>类型</th>
+<th>参数描述</th>
+	</tr><tr>
+		<td>page</td>
+		<td>int</td>
+		<td>指定第几页,默认为第一页</td>
+	</tr>
+	<tr>
+		<td>page_size</td>
+		<td>int</td>
+		<td>指定每页的记录数,默认为10</td>
+	</tr>
+	<tr>
+		<td>sort</td>
+		<td>int</td>
+		<td>指定返回结果按照哪个属性排序</td>
+	</tr>
+</tbody></table>
+<h3 id="API请求格式">1.4 API请求格式</h3>
+<p><code>协议</code>+<code>域名</code>+<code>路径</code>+<code>查询参数</code><br>
+例如获取所有停车场接口应为：<code>https://zheng-yao-ting-che.apis.staging.jcbel.com/parkinglots?page=1&amp;page_size=10</code></p>
+<h3 id="请求参数">1.5 请求参数</h3>
+<p>请求体(payload)通常都是一个JSON对象<br>
+以用户注册API为例，账号和密码都为字符串,那么请求体就是如下JSON对象:</p>
+<pre>{
+  "account": "",//用户账号,不能为空
+  "password": ""//登录密码,不能为空
+}
+</pre>
+<p>注意：GET方式的请求无请求体，参数通过url传递。另外，以：开始的字符串表示这是一个路径参数，在使用时需要替换为真实值</p>
+<h3 id="响应">1.6 响应</h3>
+<p>接口的响应为以下格式</p>
+<pre>{
+  "error": boolean,//有异常为true,否则为false
+  "message": "", //有异常或错误则为具体的异常错误信息，否则为空
+  "payload":{},//响应体,对象或数组
+  "meta":{//附加信息 
+    "total":''//总的记录数
+   }
+}
+</pre>
+<h3 id="响应值类型格式说明">1.7 响应值类型格式说明</h3>
+<ul>
+<li>时间日期类型格式为：yyyy-MM-dd（日期）、yyyy-MM-dd HH:mm:ss（时间日期）</li>
+<li>金额为整数或浮点数，若为浮点数保留两位小数</li>
+<li>响应若无类型说明则代表为string类型，其他类型有类型标记</li>
+</ul>
+<hr>
+<h2 id="通用接口">2 通用接口</h2>
+<h3>2.1 获取4位手机验证码</h3>
+<ul>
+<li>请求路径 <code>/common/verify_code</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "mobile": ""//手机号码,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "verifyCode":"1234" //短信验证码
+  }
+}
+</pre>
+<h3>2.2 获取停车场收费规则</h3>
+<ul>
+<li>请求路径 <code>/common/charge_rule?parkinglotId=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>parkinglotId:停车场唯一标识,不能为空 int
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "freeTime":"",//免费时长（分钟）,int
+    "capping":""//封顶金额（元）,int 
+    "bigCarPrice":"" //大型车停车单价（每小时/元）,double 
+    "midCarPrice":"" //中型车停车单价（每小时/元）,double 
+    "smallCarPrice":"" //小型车停车单价（每小时/元）,double 
+    "otherCarPrice":"" //其他车型停车单价（每小时/元）,double 
+  }
+}
+</pre>
+<h3>2.2 获取状态类下拉列表</h3>
+<ul>
+<li>请求路径 <code>/common/dropdown/:dropdownName</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>可以使用的下拉框</li>
+</ul>
+<table>
+<tbody><tr><th>下拉框名称</th>
+<th>下拉框参数名称</th>
+</tr><tr>
+</tr><tr>
+<td>车位锁状态（只包含升起和降下）</td>
+<td>lockstatus</td>
+</tr>
+<tr><td>设备类型</td>
+<td>devicetype</td>
+</tr>
+<tr>
+<td>车位锁异常类型</td>
+<td>lockalarmtype</td>
+</tr>
+<tr>
+<td>地磁异常类型</td>
+<td>geoalarmtype</td>
+</tr>
+<tr>
+<td>设备绑定情况</td>
+<td>devbindstatus</td>
+</tr>
+</tbody></table>
+<ul>
+<li>请求参数说明</li>
+</ul>
+<pre>dropdownName:下拉框参数名称
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+    {
+      "code":"",//状态码
+      "desc":""//描述 
+    },
+    ...
+  ]
+}
+</pre>
+<hr>
+<h2 id="管理端相关接口">3 管理端相关接口</h2>
+<h3>3.1 登录</h3>
+<ul>
+<li>请求路径 <code>/admin/login</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "account": "",//管理员账号,不能为空
+  "password": "",//管理员登录密码,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "id":"", //管理员唯一标识 int
+    "name":"", //管理员姓名
+    "type":""//管理员类型  0:施工端管理员  1:路边收费端管理员  2:施工端管理员、路边收费端管理员
+  }
+}
+</pre>
+<h3>3.2 找回密码</h3>
+<ul>
+<li>请求路径 <code>/admin/password</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "account": "",//管理员账号,不能为空
+  "password": "",//管理员登录密码,不能为空
+  "vcode":""//验证码
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>3.3 获取所有停车场信息</h3>
+<ul>
+<li>请求路径 <code>/parkinglots</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":[
+    {
+      "id":"",//停车场唯一标识 int
+      "parkinglotName":""//停车场名称
+    },
+    ...
+  ]
+}
+</pre>
+<h3>3.4 获取车位信息</h3>
+<ul>
+<li>请求路径 <code>/parkings?parkinglotId=xxx&amp;lockStatus=xxx&amp;areaId=xxx&amp;operatorId&amp;devBindStatus=xxx&amp;parkingNo=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  parkingNo:车位编号
+  parkinglotId:停车场唯一标识 int
+  lockStatus:车位锁的状态码
+  operatorId:管理员的唯一标识,不能为空 int
+  areaId:停车场区域唯一标识 int
+  devBindStatus:设备绑定情况 0:已绑定设备 1:未绑定车位锁 2:未绑定地磁 
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+     {
+       "id":"",//车位唯一标识 int
+       "parkinglotId":"",//停车场唯一标识 int
+       "parkingNo":"",//车位号
+       "status":"",//车位状态 0:空闲  1:占用
+       "parkingLock":{
+         "serialNumber":"",//车位锁串号
+         "power":"",//车位锁电量 
+         "status":""//车位锁状态
+       },
+       "geomagnetism":{
+         "serialNumber":"",//地磁串号
+         "power":"",//地磁电量
+         "status":""//地磁状态
+       }
+     },
+     ...
+  ]
+}
+</pre>
+<h3>3.5 绑定设备到车位</h3>
+<ul>
+<li>请求路径 <code>/devices</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "operatorId":"",//管理员唯一标识  int
+  "devices":[
+    {
+      "parkingId":"",//车位唯一标识 int
+      "serialNumber":""//设备串号
+    },
+    ....
+  ]
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+     {
+       "parkingId":"",//车位唯一标识 int
+       "serialNumber":"",//设备串号
+       "errMsg":""//失败消息
+     },
+     ...
+  ]
+}
+</pre>
+<h3>3.6 获取告警消息</h3>
+<ul>
+<li>请求路径 <code>/alarm_messages?operatorId=xxx&amp;parkinglotId=xxx&amp;deviceType=xxx&amp;snagType=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  operatorId:管理员唯一标识,不能为空  int
+  parkinglotId:停车场唯一标识 int
+  deviceType:设备类型 0:车位锁 1:地磁
+  snagType:故障类型
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+    {
+      "id":"",//告警消息唯一标识
+      "content":"",//故障内容
+      "alarmTime":"",//告警时间
+      "parkinglotId":""//停车场唯一标识 int
+    },
+    ...
+  ]
+}
+</pre>
+<h3>3.7 处理告警消息</h3>
+<ul>
+<li>请求路径 <code>/alarm_messages</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "operatorId":"",//管理员的唯一标识,不能为空 int
+  "alarmMessages":[
+    {
+      "id":""//告警消息唯一标识 int
+    },
+    ...
+  ]
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>3.8 获取停车场区域</h3>
+<ul>
+<li>请求路径 <code>/parkinglot/:parkinglotId/area</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  parkinglotId:停车场唯一标识 int
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":[
+    {
+      "id":"",//区域唯一标识
+      "areaName":"" //区域名称
+    },
+    ...
+  ]
+}
+</pre>
+<h3>3.9 管理员未处理告警消息记录数</h3>
+<ul>
+<li>请求路径 <code>/alarm_messages/count?operatorId=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  operatorId:管理员唯一标识 int (不能为空)
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":{
+    "count":""//告警消息总记录数 int
+  }
+}
+</pre>
+<h3>3.10 设置管理员极光推送id</h3>
+<ul>
+<li>请求路径 <code>/admin/jspush_id</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "account": "",//管理员账号,不能为空
+  "jpushId": ""//极光注册id,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>3.11 升起车位锁</h3>
+<ul>
+<li>请求路径 <code>/devices/lock/:serialNumber/up</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  serialNumber:设备串号（路径参数）
+  "operatorId":""//管理员唯一标识
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>3.11 降下车位锁</h3>
+<ul>
+<li>请求路径 <code>/devices/lock/:serialNumber/down</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  serialNumber:设备串号（路径参数）
+  "operatorId":""//管理员唯一标识
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<hr>
+<h2 id="路边停车收费端相关接口">4 路边停车收费端相关接口</h2>
+<h3>4.1 获取场内车辆信息</h3>
+<ul>
+<li>请求路径 <code>/parkinglot/cars?operatorId=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  operatorId:管理员唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+    {
+      "id":"",//场内车辆唯一标识
+      "carNumber":"", //车牌号码
+      "inTime":"", //车辆入场时间
+      "url":"",  //车辆图片url
+      "carType":"", //车辆类型 0:大型车 1:中型车 2:小型车 3:其他
+      "pType":"", //停车类型 0:临时车  1:月租车
+      "parkingNo":"",//车位编号
+      "parkingId":"",//车位唯一标识,int
+      "parkinglotId":""//停车场唯一标识
+      "parkinglotName":"" //停车场名称
+      "order":{
+        "id":"",//订单唯一标识
+        "orderNo":"",//停车订单号
+        "payStatus":"",//支付状态 为空或者0:未支付 1:已支付
+        "orderStatus":"",//订单状态  0:进行中 1:欠费  2:已结束
+        "isFree":""//是否免费 为空或者0:否 1:是
+      }
+    },
+    ...
+  ]
+}
+</pre>
+<h3>4.2 停车订单录入</h3>
+<ul>
+<li>请求路径 <code>/order</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "carNumber": ""
+  "parkingId":"",//车位唯一标识,不能为空 int
+  "carType":"",//车辆类型
+  "operatorId":"",//管理员唯一标识,不能为空 int
+  "fileName":""//图片文件名称
+  "isCar":""//是否是车辆 boolean,默认为false true:车辆 false:非车辆
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>4.3 停车订单修改</h3>
+<ul>
+<li>请求路径 <code>/order/:orderId</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "carNumber": "",
+  "parkingId":"",//车位唯一标识,不能为空 int
+  "carType":"",//车辆类型
+  "operatorId":"",//管理员唯一标识,不能为空 int
+  "parkinglotCarId":""//场内车辆唯一标识,不能为空 int
+  "fileName":""//图片文件名称
+  "isCar":""//是否是车辆 boolean,默认为false true:车辆 false:非车辆
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>4.4 收费记录/历史未收费订单</h3>
+<ul>
+<li>请求路径 <code>/orders?operatorId=xxx&amp;startTime=xxx&amp;endTime=xxx&amp;payStatus=xxx&amp;carNumber=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>
+  startTime: 开始时间，格式yyyy-MM-dd HH:mm:ss
+  endTime:结束时间，格式yyyy-MM-dd HH:mm:ss
+  operatorId:管理员唯一标识,不能为空
+  payStatus:支付状态  0:未支付 1:已支付
+  carNumber:车牌号
+  payWay:支付方式 0:网络支付  1:现金支付
+
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+    {
+      "id":"",//停车订单唯一标识
+      "carNumber":"",//车牌号
+      "duration":"",//停车时长
+      "outTime":""//车辆离场时间 
+      "payWay":"",//支付方式 0:网络支付  1:现金支付
+      "payStatus":"",//支付状态  为空或0:未支付 1:已支付
+      "totalFee":"",//停车总金额 double
+      "parkinglotName":"",//停车场名称
+    },
+    ...
+  ]
+}
+</pre>
+<h3>4.5 收费员账单统计</h3>
+<ul>
+<li>请求路径 <code>/order/statistics?operatorId=xxx&amp;startTime=xxx&amp;endTime=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  operatorId:管理员唯一标识,不能为空
+  startTime:开始时间
+  endTime:结束时间
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":{
+    "receive":"",//实收金额 double
+    "total":"",//应收金额 double
+    "onlinePay":""//网络支付金额 double
+    "cashPay":""//现金支付金额 double
+  }
+}
+</pre>
+<h3>4.6 订单详情</h3>
+<ul>
+<li>请求路径 <code>/order/:orderId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "orderNo":"",//订单号
+    "carNumber":"",//车牌号
+    "inTime":"",//进场时间
+    "outTime":"",//出场时间
+    "duration":"",//停车时长
+    "totalFee":"",//停车总金额 double
+    "payedFee":"",//已支付金额 double
+    "unPayFee":"",//欠费金额 double
+    "parkinglotId":"",//停车场唯一标识 int
+    "parkinglotName":""//停车场名称
+  }
+}
+</pre>
+<h3>4.7 收费</h3>
+<ul>
+<li>请求路径 <code>/order/charge</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "orderId":"",//订单唯一标识,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "carNumber":"",//车牌号
+    "inTime":"",//进场时间
+    "outTime":"",//出场时间
+    "duration":"",//停车时长
+    "totalFee":"",//停车金额 double
+    "ownFee":""//欠费金额 
+    "parkinglotId":"",//停车场唯一标识 int
+    "parkinglotName":""//停车场名称 
+  }
+}
+</pre>
+<h3>4.8 确认收费</h3>
+<ul>
+<li>请求路径 <code>/order/charge_confirm</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "operatorId":"",//管理员唯一标识,不能为空
+  "orderId":"",//订单唯一标识,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>4.9 免单设置</h3>
+<ul>
+<li>请求路径 <code>/order/free</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "operatorId":"",//管理员唯一标识,不能为空 int
+  "reason":"",//免单原因
+  "orderId":""//订单唯一标识,不能为空 int
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>4.10 离场</h3>
+<ul>
+<li>请求路径 <code>/parkinglot/car/:parkingId</code></li>
+<li>请求方式 <code>DELETE</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  parkingId:车位唯一标识,int
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>4.11 获取空闲车位</h3>
+<ul>
+<li>请求路径 <code>/parkings/free?parkinglotId=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>parkinglotId:停车场唯一标识 int
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+     {
+       "id":"",//车位唯一标识 int
+       "parkingNo":""//车位号
+     },
+     ...
+  ]
+}
+</pre>
+<hr>
+<h2 id="用户端相关接口">5 用户端相关接口</h2>
+<h3>5.1 用户注册</h3>
+<ul>
+<li>请求路径 <code>/user</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "account": "",//账号,不能为空
+  "password":""//登录密码,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.2 用户登录</h3>
+<ul>
+<li>请求路径 <code>/user/login</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "account": "",//账号,不能为空
+  "password":"",//用户密码,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "userId":""//用户id
+    "phoneNumber":""//用户电话号码
+  }
+}
+</pre>
+<h3>5.3 用户获取个人信息</h3>
+<ul>
+<li>请求路径 <code>/user/:userId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "userId":"",//用户id int
+    "balance":"",//用户余额 double
+    "phoneNumber":"",//手机号码
+    "wechat":{
+      "wechatAcc":"",//微信账号
+      "nickname":""//微信昵称
+    }
+  }
+}
+</pre>
+<h3>5.4 用户修改密码</h3>
+<ul>
+<li>请求路径 <code>/user/password</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "account": "",//用户账号,不能为空
+  "oldPassword":"",//原始密码,不能为空
+  "password":""//新的密码,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.5 忘记密码</h3>
+<ul>
+<li>请求路径 <code>/user/password</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "account": "",//用户账号,不能为空
+  "vcode":"",//验证码,不能为空
+  "password":""//新的登录密码,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.6 更换手机号</h3>
+<ul>
+<li>请求路径 <code>/user/:userId</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "phoneNumber":""//手机号码
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.7 绑定微信账号</h3>
+<ul>
+<li>请求路径 <code>/user/:userId/wechat</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "wechatAcc":"",//微信账号,不能为空
+  "nickname":""//微信昵称
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.8 解除微信账号绑定</h3>
+<ul>
+<li>请求路径 <code>/user/:userId/wechat/:wechatAcc</code></li>
+<li>请求方式 <code>DELETE</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  userId:用户id
+  wechatAcc:微信账号
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.9 用户获取个人车辆信息</h3>
+<ul>
+<li>请求路径 <code>/cars/:userId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  userId:用户id
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":[
+    {
+      "id":"",//车辆唯一标识 int
+      "carNumber":"",//车牌号
+      "status":""//状态  0:未入场 1：已预约 2：已入场 3：已缴费未出场
+    }
+    ...
+  ]
+}
+</pre>
+<h3>5.10 添加用户车辆信息</h3>
+<ul>
+<li>请求路径 <code>/car</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "userId":""//用户id,不能为空
+  "carNumber": ""//车牌号码,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.11 删除用户绑定车辆信息</h3>
+<ul>
+<li>请求路径 <code>/car/:carId</code></li>
+<li>请求方式 <code>DELETE</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>
+
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.12 获取预约基本信息</h3>
+<ul>
+<li>请求路径 <code>/parkinglot/:parkinglotId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>parkinglotId：停车场唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "id" : 1,//停车场唯一标识 int
+    "parkinglotName" : "石子山体育公园停车场",//停车场名称
+    "location" : "石子山体育公园",//停车场详细地址
+    "freeCount" : 2,//空闲车位数 int
+    "revatationCount" : 2,//可预约车位 int
+    "parkingPrice" : 4.0//停车单价（每小时/元）
+  }
+}
+</pre>
+<h3>5.13 预约车位</h3>
+<ul>
+<li>请求路径 <code>/reservation</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "userId": "",//用户id,不能为空
+  "carNumber":"",//车牌号,不能为空
+  "duration":"",//预约时长(分钟) int
+  "payFee":"",//需要支付的费用
+  "parkinglotId":""//停车场唯一标识,不能为空
+  "payWay":""//支付方式  2:支付宝支付 3:微信支付 4：余额支付
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "orderNo":"1703271722598716",//订单号
+    "parkingNo":"",//车位号
+    //支付宝支付信息
+    "alipayInfo":"alipay_sdk=alipay-sdk-java-dynamicVersionNo&amp;app_id=2017032706423946&amp;biz_content=%7B%22body%22%3A%22%E5%81%9C%E8%BD%A6%E8%B4%B9%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22subject%22%3A%22%E5%81%9C%E8%BD%A6%E8%B4%B9%22%2C%22timeout_express%22%3A%2230m%22%2C%22total_amount%22%3A%222.00%22%7D&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.app.pay¬ify_url=zheng-yao-ting-che.apis.staging.jcbel.com%2Falipay%2Fnotify&amp;sign=H6wy%2F7%2Fc4bCnQ4FvY8CEQ7Q%2BVFGHLPZfWXkXw2otH2LSMo3szUF8Ix6msbHKoJS4OP%2B0G1kjFyQ%2BFxdn9sV%2FMqV6%2BHuQMS1i5ZW3IY9uE6LCVuhznbbjWE2q%2FrXOJ3lE4zQ4xzKOhkJ3jGNjzXT6P%2BW%2BlCnvPBDgnhjwfDVGRtEdkbrJNAkOR8EsRwlf2iLnm45WdBr%2BK1LerxwhjuXbm%2F9F7O8A69%2BzPA9yTnBqJIIJbuMVHfqQ0F8k867RgEeIatM5IF8QWeyXED%2BulD3nbEIrGPMw%2FI%2FYqiYKA5XhcRxwzr49BrXEWsNMVXTe0voa2Kws4RoCMPp6y96Vc2YwQA%3D%3D&amp;sign_type=RSA2×tamp=2017-03-28+15%3A25%3A59&amp;version=1.0&amp;sign=H6wy%2F7%2Fc4bCnQ4FvY8CEQ7Q%2BVFGHLPZfWXkXw2otH2LSMo3szUF8Ix6msbHKoJS4OP%2B0G1kjFyQ%2BFxdn9sV%2FMqV6%2BHuQMS1i5ZW3IY9uE6LCVuhznbbjWE2q%2FrXOJ3lE4zQ4xzKOhkJ3jGNjzXT6P%2BW%2BlCnvPBDgnhjwfDVGRtEdkbrJNAkOR8EsRwlf2iLnm45WdBr%2BK1LerxwhjuXbm%2F9F7O8A69%2BzPA9yTnBqJIIJbuMVHfqQ0F8k867RgEeIatM5IF8QWeyXED%2BulD3nbEIrGPMw%2FI%2FYqiYKA5XhcRxwzr49BrXEWsNMVXTe0voa2Kws4RoCMPp6y96Vc2YwQA%3D%3D",
+    //微信支付信息
+    "weixinPayInfo":{
+      "return_code": "SUCCESS",//返回状态码
+      "return_msg": "OK",//返回信息
+      "appid": "wx100d268a6a1246e7",//应用ID
+      "mch_id": "1460124702",//商户号
+      "nonce_str": "FDoRLGwihX6YwJM1",//随机字符串
+      "sign": "A0BB9579E95989D66AED9BD876294EB3",//签名
+      "result_code": "SUCCESS",//业务结果
+      "trade_type": "APP",//交易类型
+      "prepay_id": "wx20170427140550c79a14875b0219226610"//预支付交易会话标识
+    }
+  }
+}
+</pre>
+<h3>5.14 取消预约</h3>
+<ul>
+<li>请求路径 <code>/reservation/:id</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  id:预约记录唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.15 获取个人预约记录</h3>
+<ul>
+<li>请求路径 <code>/reservations/:userId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  userId:用户id
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+    {
+      "id":""//预约记录唯一标识
+      "parkinglotId":"",//停车场唯一标识 int
+      "parkinglotName":"",//停车场名称
+      "parkingNo":"",//车位号
+      "duration":"",//预订时长
+      "payedFee":"",//预订费用 double
+      "status":"",订单状态 2:预约成功 3:取消 4:使用中 5：预约过期 6:结束
+      "map":{
+        "mapname":"",//地图名称
+        "version":"",版本号
+        "androidDownloadUrl":"",//Android端下载路径
+        "iosDownloadUrl":""//IOS端下载路径
+      }
+    }
+  ]
+}
+</pre>
+<h3>5.16 获取车辆进行中的预约记录信息</h3>
+<ul>
+<li>请求路径 <code>/car/:carId/reservation?coordinateX=xxx&amp;coordinateY=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  carId:车辆唯一标识
+  coordinateX:当前位置x坐标
+  coordinateY:当前位置y坐标
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "id":""//预约记录唯一标识
+    "expireTime":""//预约到期时间
+    "parkinglotName":"",//停车场名称
+    "parkingNo":"",//车位号
+    "coordinateX":"",//停车场位置x坐标
+    "coordinateY":""//停车场位置y坐标
+    "distance":""//当前位置与预约停车场的距离
+  }
+}
+</pre>
+<h3>5.17 获取个人停车订单记录</h3>
+<ul>
+<li>请求路径 <code>/user/:userId/orders</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  userId:用户id
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+    {
+      "id":""//订单唯一标识 int
+      "carNumber":"",//车牌号
+      "inTime":"",//入场时间
+      "outTime":"",//离场时间
+      "totalFee":"",//停车费用
+      "payStatus":"",//支付状态 0:未支付 1:已支付
+      "payWay":"",//支付方式 0:网络支付  1:现金支付
+      "orderInvoiceStatus":"",//开票状态 0：不具备 1:未申请 2：已开
+      "parkinglotName":"",//停车场名称
+      "duration":""//停车时长
+    },
+    ...
+  ]
+}
+</pre>
+<h3>5.18 获取停车订单详情</h3>
+<ul>
+<li>请求路径 <code>/user/order/:orderId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "orderNo":"",//订单号
+    "carNumber":"",//车牌号
+    "inTime":"",//进场时间
+    "payTime":""//结算时间
+    "payStatus":"",//订单支付状态 0:未支付  1:已支付
+    "outTime":"",//出场时间
+    "duration":"",//停车时长
+    "totalFee":"",//停车总金额 double
+    "payedFee":"",//已支付金额 double
+    "unPayFee":"",//欠费金额 double
+    "parkinglotId":"",//停车场唯一标识 int
+    "parkinglotName":"",//停车场名称
+    "parkingLock":{
+      "serialNumber":"" //车位锁串号
+    },
+    "map":{
+      "mapname":"",//地图名称
+      "version":"",版本号
+      "androidDownloadUrl":"",//Android端下载路径
+      "iosDownloadUrl":""//IOS端下载路径
+    }
+  }
+}
+</pre>
+<h3>5.19 获取车辆进行中的停车订单信息</h3>
+<ul>
+<li>请求路径 <code>/car/:carId/order</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  carId:车辆唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "id":""//预约记录唯一标识
+    "orderNo":"",//订单号
+    "payStatus":""//支付状态 0:未支付 1:已支付
+    "totalFee":""//总费用
+    "unPayFee":""//应缴费用
+    "outTime":""//离场时间
+    "parkinglotName":"",//停车场名称
+    "duration":""//停车时长
+    "coordinateX":"",//停车场位置x坐标
+    "coordinateY":""//停车场位置y坐标
+    "parkingLock":{
+      "serialNumber":"" //车位锁串号
+    },
+    "map":{
+      "mapname":"",//地图名称
+      "version":"",版本号
+      "androidDownloadUrl":"",//Android端下载路径
+      "iosDownloadUrl":""//IOS端下载路径
+    }
+  }
+}
+</pre>
+<h3>5.20 获取固定车辆信息</h3>
+<ul>
+<li>请求路径 <code>/car/:carNumber/whitelists</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  carNumber:车牌号
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": [
+    {
+      "parkinglotName":"",//停车场名称
+      "endDate":""//到期日期
+      "coordinateX":"",//停车场位置x坐标
+      "coordinateY":""//停车场位置y坐标
+    },
+    ...  
+  ]
+}
+</pre>
+<h3>5.21 获取附近停车场</h3>
+<ul>
+<li>请求路径 <code>/parkinglots/neighborhood?range=xxx&amp;coordinateX=xxx&amp;coordinateY=xxx</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  range:距离范围,不能为空 double
+  coordinateX:当前位置x坐标,不能为空 double
+  coordinateY:当前位置y坐标,不能为空 double
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":[
+     {
+       "id" : 1,//停车场唯一标识 int
+       "parkinglotName" : "石子山体育公园停车场",//停车场名称
+       "isRevatation" : true,//是否可预约 boolean true:可预约  false:不可预约
+       "freeTime" : 2,//免费停车时长 int
+       "haveMap" : false,//是否有室内地图 boolean true:有室内地图 false:无室内地图
+       "haveLock" : false,//是否有车位锁 boolean true:有车位锁 false:无车位锁
+       "location":"石子山体育公园东门",//停车场详细位置
+       "coordinateX" : 106.493206,//停车场x坐标
+       "coordinateY" : 29.60677,//停车场y坐标
+       "totalCount" : 2,//总的车位数 int 
+       "inUseCount" : 0,//被占用的车位数 int
+       "freeCount" : 2,//空闲车位数 int
+       "revatationCount" : 2, //可预约车位 int
+       "distance" : 889//距离
+     },
+     ...
+   ]
+}
+</pre>
+<h3>5.22 申请开发票</h3>
+<ul>
+<li>请求路径 <code>/invoice/application</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "userId": "",//用户id,不能为空
+  "amount":"",//开票金额,不能为空
+  "invoiceHead":"",//发票抬头,不能为空
+  "recevier":"",//收件人,不能为空
+  "linkPhone":"",//联系电话,不能为空
+  "address":"",//收件地址,不能为空
+  "order":[
+    {
+      "orderId":""//停车订单id,不能为空 int
+    },
+    ...
+  ]
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.23 用户获取个人发票记录</h3>
+<ul>
+<li>请求路径 <code>/invoices/:userId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":[
+    {
+      "id" : 2,
+      "invoiceNo" : "1703151418484645",//订单号码
+      "applyDate" : "2017-03-15 14:18:58.0",//开票时间
+      "amount" : 100.00,//开票金额 double
+      "invoiceHead" : "重庆甲虫网络",
+      "status" : "0",//发票状态 0：已申请 1：已完成
+      "receiver" : "张三",//收件人
+      "linkPhone" : "18782211111",//联系电话
+      "address" : "重庆市渝北区",//收件地址
+      "isFreeDelivery":"0" //是否包邮  0:不包邮 1:包邮
+    },
+    ...
+  ]
+}
+</pre>
+<h3>5.24 发票详情</h3>
+<ul>
+<li>请求路径 <code>/invoice/:invoiceId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  invoiceId:发票唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "invoiceNo":"",//订单号码
+    "amount":"",//发票金额 double
+    "invoiceHead":"",发票抬头
+    "status":"",//开票状态  0:已申请  1:已完成
+    "receiver":"",//收件人
+    "linkPhone":"",//联系电话
+    "address":""//收件地址
+  }
+}
+</pre>
+<h3>5.25 建议反馈</h3>
+<ul>
+<li>请求路径 <code>/advice</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "userId":""//用户id,不能为空
+  "type": "",//建议类型,不能为空  0:软件错误/Bug 1:改进建议 2：其他
+  "content":""//内容
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.26 获取用户消息</h3>
+<ul>
+<li>请求路径 <code>/messages/:userId</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  userId:用户id,不能为空
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+  "payload": [
+    {
+      "id":"",//消息唯一标识
+      "title":"",//标题
+      "content":"",//内容
+      "readStatus":"",//阅读状态  0:未读  1:已读
+      "createTime":""//创建时间
+    },
+    ...
+  ]
+}
+</pre>
+<h3>5.27 获取用户消息详情</h3>
+<ul>
+<li>请求路径 <code>/message/{messageId}</code></li>
+<li>请求方式 <code>GTE</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  messageId:消息唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+   "payload": {
+     "id":"",//消息唯一标识
+     "title":"",//标题
+     "content":"",//内容
+     "createTime":""//创建时间
+  }
+}
+</pre>
+<h3>5.28 修改用户消息状态</h3>
+<ul>
+<li>请求路径 <code>/message/{messageId}</code></li>
+<li>请求方式 <code>PUT</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  messageId:消息唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.29 生成订单支付信息（支付宝）</h3>
+<ul>
+<li>请求路径 <code>/alipay/orderinfo</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "orderNo":"",//订单号,不能为空
+  "payFee":"", //支付金额,不能为空
+  "orderType":"" //订单类型,不能为空 0：预约订单 1：停车订单  2：余额充值订单
+} 
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":{
+    "orderInfo":"alipay_sdk=alipay-sdk-java-dynamicVersionNo&amp;app_id=2017032706423946&amp;biz_content=%7B%22body%22%3A%22%E5%81%9C%E8%BD%A6%E8%B4%B9%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22subject%22%3A%22%E5%81%9C%E8%BD%A6%E8%B4%B9%22%2C%22timeout_express%22%3A%2230m%22%2C%22total_amount%22%3A%222.00%22%7D&amp;charset=UTF-8&amp;format=json&amp;method=alipay.trade.app.pay¬ify_url=zheng-yao-ting-che.apis.staging.jcbel.com%2Falipay%2Fnotify&amp;sign=H6wy%2F7%2Fc4bCnQ4FvY8CEQ7Q%2BVFGHLPZfWXkXw2otH2LSMo3szUF8Ix6msbHKoJS4OP%2B0G1kjFyQ%2BFxdn9sV%2FMqV6%2BHuQMS1i5ZW3IY9uE6LCVuhznbbjWE2q%2FrXOJ3lE4zQ4xzKOhkJ3jGNjzXT6P%2BW%2BlCnvPBDgnhjwfDVGRtEdkbrJNAkOR8EsRwlf2iLnm45WdBr%2BK1LerxwhjuXbm%2F9F7O8A69%2BzPA9yTnBqJIIJbuMVHfqQ0F8k867RgEeIatM5IF8QWeyXED%2BulD3nbEIrGPMw%2FI%2FYqiYKA5XhcRxwzr49BrXEWsNMVXTe0voa2Kws4RoCMPp6y96Vc2YwQA%3D%3D&amp;sign_type=RSA2×tamp=2017-03-28+15%3A25%3A59&amp;version=1.0&amp;sign=H6wy%2F7%2Fc4bCnQ4FvY8CEQ7Q%2BVFGHLPZfWXkXw2otH2LSMo3szUF8Ix6msbHKoJS4OP%2B0G1kjFyQ%2BFxdn9sV%2FMqV6%2BHuQMS1i5ZW3IY9uE6LCVuhznbbjWE2q%2FrXOJ3lE4zQ4xzKOhkJ3jGNjzXT6P%2BW%2BlCnvPBDgnhjwfDVGRtEdkbrJNAkOR8EsRwlf2iLnm45WdBr%2BK1LerxwhjuXbm%2F9F7O8A69%2BzPA9yTnBqJIIJbuMVHfqQ0F8k867RgEeIatM5IF8QWeyXED%2BulD3nbEIrGPMw%2FI%2FYqiYKA5XhcRxwzr49BrXEWsNMVXTe0voa2Kws4RoCMPp6y96Vc2YwQA%3D%3D"
+  }
+}
+</pre>
+<h3>5.30 生成订单支付信息（微信）</h3>
+<ul>
+<li>请求路径 <code>/weixin/pay/orderinfo</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "orderNo":"",//订单号,不能为空
+  "payFee":"", 支付金额,不能为空
+  "orderType":"" //订单类型,不能为空 0：预约订单 1：停车订单  2：余额充值订单
+}
+</pre>
+<p>响应 <a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1" target="_blank">参考微信统一下单API文档</a></p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload":{
+    "return_code" : "SUCCESS",//返回状态码
+    "return_msg" : "OK",//返回信息, 
+    "appid" : "wx23835d4c314a0b51",//应用ID
+    "mch_id" : "1380880602",//商户号
+    "nonce_str" : "v3NZylTmd9gGX2KW",//随机字符串
+    "sign" : "1B9F9B400B8672D9475AFBD9996A6ED5",//签名
+    "result_code" : "SUCCESS",//业务结果
+    "trade_type" : "APP",//交易类型
+    "prepay_id" : "wx20170328150650070bb396680839686211" //预支付交易会话标识
+  }
+}
+</pre>
+<h3>5.31 支付结果反馈接口</h3>
+<ul>
+<li>请求路径 <code>/paylog</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "orderNo":""//订单号
+  "type": "",//费用类型,不能为空  0:预约缴费 1:停车缴费 2:余额充值
+  "payWay":"",//支付方式  2:支付宝支付 3:微信支付 4：余额支付
+  "payStatus":""//支付状态,不能为空 0:未支付 1：已支付
+  "amount":""//金额,不能为空
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.32 取消预约后申请退款</h3>
+<ul>
+<li>请求路径 <code>/reservation/:id/refund</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>  id:预约记录唯一标识
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.33 余额支付</h3>
+<ul>
+<li>请求路径 <code>/balance/pay</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "userId":"",//用户id
+  "amount":""//支付金额
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>5.34 获取微信appId</h3>
+<ul>
+<li>请求路径 <code>/wechat/appid</code></li>
+<li>请求方式 <code>GET</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>
+
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+  "payload": {
+    "appId":"wx2383*****14a0b51"
+  }
+}
+</pre>
+<h3>5.35 微信登录获取用户信息</h3>
+<ul>
+<li>请求路径 <code>/wechat/login</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "wechatAcc":""//微信账号
+}
+
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+  "payload": {
+    "userId":""//用户id
+    "phoneNumber":""//用户电话号码
+  }
+}
+</pre>
+<h3>5.36 余额充值</h3>
+<ul>
+<li>请求路径 <code>/balance/recharge</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "userId": "",//用户id,不能为空
+  "payFee":"",//充值金额
+  "payWay":""//支付方式  2:支付宝支付 3:微信支付
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    //支付宝支付信息
+    "alipayInfo":"alipay_sdk=alipay-sdk-java-****QA%3D%3D",
+    //微信支付信息
+    "weixinPayInfo":{ 
+      "return_code": "SUCCESS",//返回状态码
+      "return_msg": "OK",//返回信息
+      "appid": "wx100d268a6a1246e7",//应用ID
+      "mch_id": "1460124702",//商户号
+      "nonce_str": "FDoRLGwihX6YwJM1",//随机字符串
+      "sign": "A0BB9579E95989D66AED9BD876294EB3",//签名
+      "result_code": "SUCCESS",//业务结果
+      "trade_type": "APP",//交易类型
+      "prepay_id": "wx20170427140550c79a14875b0219226610"//预支付交易会话标识
+    }
+  }
+}
+</pre>
+<hr>
+<h2 id="道闸相关接口">道闸相关接口</h2>
+<h3>6.1 车辆未入场</h3>
+<ul>
+<li>请求路径 <code>/car/in</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "carNumber": "",//车牌号
+  "carType": "",//车辆类型
+  "parkinglotId":"",//停车场唯一标识 int
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "command":"" //是否抬起道闸  0:是 1:否
+  }
+}
+</pre>
+<h3>6.2 处理过车接口</h3>
+<ul>
+<li>请求路径 <code>/car/passed</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "carNumber": "",//车牌号
+  "passTime":"",//过车时间
+  "parkinglotId":"",//停车场唯一标识 int
+  "inOrOut":"" //车辆进出方向  0:进 1:出
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": ""
+}
+</pre>
+<h3>6.3 车辆未出场</h3>
+<ul>
+<li>请求路径 <code>/car/out</code></li>
+<li>请求方式 <code>POST</code></li>
+<li>请求参数说明</li>
+</ul>
+<pre>{
+  "carNumber": "",//车牌号
+  "parkinglotId":"",//停车场唯一标识 int
+}
+</pre>
+<p>响应</p>
+<pre>{
+  "error": false,
+  "message": "",
+  "payload": {
+    "command":"" //是否抬起道闸  0:是 1:否
+  }
+}
+</pre>
+<p><a href="#head">回到顶部</a></p>
+    </article>
+    </main>
+ 
+    
+</div> 
+</body>
+</html>
